@@ -20,15 +20,19 @@ import AddTransaction from './components/AddTransaction.vue';
 
 import { useToast } from 'vue-toastification';
 
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 const toast = useToast();
 
-const transactions = ref([
-	{ id: 1, text: 'flower', amount: -19 / 99 },
-	{ id: 2, text: 'salary', amount: 299 / 99 },
-	{ id: 3, text: 'camera', amount: 150 },
-]);
+const transactions = ref([]);
+
+onMounted(() => {
+	const savedTransactions = JSON.parse(localStorage.getItem('transactions'));
+
+	if (savedTransactions) {
+		transactions.value = savedTransactions;
+	}
+});
 
 const total = computed(() => {
 	return transactions.value.reduce((acc, transaction) => {
