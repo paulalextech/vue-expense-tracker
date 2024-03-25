@@ -1,7 +1,7 @@
 # vue-expense-tracker
 
 
-![Uploading Screenshot 2024-03-25 at 09.54.50.png…]()
+! 2024-03-25 at 09.54.50.png…]()
 
 This template should help get you started developing with Vue 3 in Vite.
 
